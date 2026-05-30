@@ -1,23 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
+// https://react.dev/reference/react/hooks
 function App() {
+  var [shoppingList, setShoppingList] = useState([])
+  var test = useState([])
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit Thebekarani <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Shopping List Application</h1>
+      <input placeholder='Enter shopping list item'/>
+      <button onClick={() => setShoppingList([...shoppingList, 'banana'])}>add item</button>
+      <ol>
+        {shoppingList.map((shoppingItem) => <li>{shoppingItem}</li>)}
+      </ol>
     </div>
   );
 }
